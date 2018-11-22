@@ -10,5 +10,4 @@ interface IProxyService {
 
 interface IMembershipService {
     getUsers(name?: string): Promise<IUser[]>;
-    // getUsers(name: string): Promise<IUser[]>;
 }

@@ -1,4 +1,4 @@
-# FrontEnd Interview Exercise
+# Front-end Interview Exercise
 The following exercise will test your understanding of promises and async. The only requirement is basic knowledge of ES6 and TypeScript. The time allotted for this exercise is 1 hour.
 
 ## Getting Started

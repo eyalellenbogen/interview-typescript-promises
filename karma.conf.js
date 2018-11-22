@@ -9,8 +9,6 @@ module.exports = function (config) {
 			"karma-jasmine",
 			"karma-jasmine-html-reporter",
 			"karma-html-detailed-reporter",
-			"karma-junit-reporter",
-			"karma-notify-reporter",
 			"karma-webpack",
 			"karma-sourcemap-loader"
 		],

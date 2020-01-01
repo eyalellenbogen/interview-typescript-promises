@@ -4,16 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "karma start"
+    "test": "jest"
   },
   "author": "Eyal Ellenbogen",
   "license": "ISC",
   "devDependencies": {
     "tslint": "^5.20.1",
     "typescript": "^3.7.4",
-    "jest": "^24.9.0"
-  },
-  "dependencies": {
+    "jest": "^24.9.0",
     "@types/jest": "^24.0.25",
     "ts-jest": "^24.2.0"
   }

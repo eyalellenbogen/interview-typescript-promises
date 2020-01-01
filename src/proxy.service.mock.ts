@@ -56,4 +56,4 @@ export const ProxyServiceMock: IProxyService = {
             resolve(data);
         });
     }
-}
+};

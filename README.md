@@ -1,11 +1,13 @@
-# Front-end Interview Exercise
-The following exercise will test your understanding of promises and async. The only requirement is basic knowledge of ES6 and TypeScript. The time allotted for this exercise is 1 hour.
+# TypeScript and Promises Exercise
+This exercise will test your understanding of promises and async in TypeScript. The only prerequisite is basic knowledge of ES6 and TypeScript. You should aim to complete this exercise within 1 hour.
 
-## Getting Started
-Download the source code and run `npm i` followed by `npm test`. This will install npm packages and run the Jest test runner in "watch" mode. 
+Getting Started
+1. Download the source code.
+2. Run `npm install` to install the necessary npm packages.
+3. Run `npm test` to start the Jest test runner in "watch" mode.
 
-## The Challenge
-Your task is to make all tests pass by modifying the code in `membership.service.ts`. 
+> **IMPORTANT:**
+>`membership.service.ts` is the only file that needs to change
 
 The tests are found in `membership.service.spec.ts`. Read them carefully and write the code that will satisfy them. You may use the internet and debug the code as you see fit.
 

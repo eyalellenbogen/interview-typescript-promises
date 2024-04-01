@@ -1,13 +1,13 @@
-import { ProxyServiceMock } from './proxy.service.mock';
-import { MembershipService } from './membership.service';
-describe('MembershipService getUsers() method', () => {
+import { ProxyServiceMock } from "./proxy.service.mock";
+import { MembershipService } from "./membership.service";
+describe("MembershipService getUsers() method", () => {
   let proxy = ProxyServiceMock;
   let proxySpy: jest.SpyInstance<Promise<IUser[]>>;
   let membershipService: IMembershipService;
 
   beforeEach(() => {
     membershipService = new MembershipService();
-    proxySpy = jest.spyOn(proxy, 'getData');
+    proxySpy = jest.spyOn(proxy, "getData");
     proxySpy.mockClear();
   });
 
@@ -47,7 +47,7 @@ describe('MembershipService getUsers() method', () => {
    * that the results are filtered to match the parameter value.
    */
   test(`should return only results that match the "name" query parameter`, async () => {
-    const name = 'dave';
+    const name = "dave";
     const results = await membershipService.getUsers(name);
     let isResultsCorrect = resultsMatchNameQuery(results, name);
     expect(isResultsCorrect).toBeTruthy();
@@ -58,8 +58,8 @@ describe('MembershipService getUsers() method', () => {
    * and then checks 2 calls were made to the proxy.
    */
   test(`should call proxy once per query`, () => {
-    const phrase1 = 'dave';
-    const phrase2 = 'michael';
+    const phrase1 = "dave";
+    const phrase2 = "michael";
     membershipService.getUsers(phrase1);
     membershipService.getUsers(phrase2);
     expect(proxySpy).toHaveBeenCalledTimes(2);
@@ -77,7 +77,9 @@ describe('MembershipService getUsers() method', () => {
    * @returns {boolean} `boolean` - true when every result matches and false when not
    */
   function resultsMatchNameQuery(results: IUser[], name: string): boolean {
-    return results.every((x) => x.name.toLowerCase().indexOf(name.toLowerCase()) >= 0);
+    return results.every(
+      (x) => x.name.toLowerCase().indexOf(name.toLowerCase()) >= 0
+    );
   }
 
   /**
@@ -88,7 +90,10 @@ describe('MembershipService getUsers() method', () => {
    * @param {string} [name]
    * @returns `Promise<IUser[][]>`
    */
-  function callServiceMultipleTimes(repeat: number, name?: string): Promise<IUser[][]> {
+  function callServiceMultipleTimes(
+    repeat: number,
+    name?: string
+  ): Promise<IUser[][]> {
     const arr: Promise<IUser[]>[] = Array(repeat)
       .fill(0)
       .map((x) => membershipService.getUsers.bind(membershipService)(name));

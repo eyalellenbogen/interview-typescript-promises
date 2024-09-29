@@ -14,6 +14,8 @@ describe("MembershipService getUsers() method", () => {
   /**
    * Calls getUsers() and checks a call was made to the proxy
    * and that the reponse contains results.
+   * --- flow ---
+   * getUsers() => 1 proxy call
    */
   test(`should call proxy and get search results`, async () => {
     const res = await membershipService.getUsers();
@@ -24,6 +26,8 @@ describe("MembershipService getUsers() method", () => {
   /**
    * Performs the same getUsers() call multiple times
    * and checks that only one request was actually sent to the proxy.
+   * --- flow ---
+   * getUsers()*5 => 1 proxy call
    */
   test(`should throttle repeating requests until the proxy returns a result`, async () => {
     const results = await callServiceMultipleTimes(5);
@@ -35,6 +39,8 @@ describe("MembershipService getUsers() method", () => {
    * Performs the same request multiple times. Once finished with the
    * first set of requests (and a result was returned), it does it again. Then it checks that only 2 calls were
    * made to the proxy.
+   * --- flow ---
+   * getUsers()*5, await response, getUsers()*5 => 2 proxy calls
    */
   test(`should send another request when called after the first one was resolved`, async () => {
     await callServiceMultipleTimes(5);
@@ -45,6 +51,8 @@ describe("MembershipService getUsers() method", () => {
   /**
    * Calls getUsers() with a "name" parameter and checks
    * that the results are filtered to match the parameter value.
+   * --- flow ---
+   * getUsers('dave'), await response => response data has only `dave` results
    */
   test(`should return only results that match the "name" query parameter`, async () => {
     const name = "dave";
@@ -56,6 +64,8 @@ describe("MembershipService getUsers() method", () => {
   /**
    * Executes the getUsers() call with 2 different "name" values
    * and then checks 2 calls were made to the proxy.
+   * --- flow ---
+   * getUsers('dave'), getUsers('michael') => 2 proxy calls
    */
   test(`should call proxy once per query`, () => {
     const phrase1 = "dave";
